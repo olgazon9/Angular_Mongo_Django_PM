@@ -1,0 +1,40 @@
+<!-- products.component.html -->
+
+<div class="list row">
+    <div class="col-md-12">
+        <h4>Products List</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let product of products; let i = index">
+                <div>
+                    <strong>{{ product.name }}</strong>
+                    <p>Description: {{ product.description }}</p>
+                    <p>Price: ${{ product.price }}</p>
+                </div>
+                <div>
+                    <button class="btn btn-success btn-sm" (click)="setActiveProduct(product, i)">Update</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-12" *ngIf="currentProduct">
+        <h4>Edit Product</h4>
+        <div>
+            <label><strong>Name:</strong></label>
+            <input [(ngModel)]="currentProduct.name" type="text" class="form-control"/>
+        </div>
+        <div>
+            <label><strong>Description:</strong></label>
+            <textarea [(ngModel)]="currentProduct.description" class="form-control"></textarea>
+        </div>
+        <div>
+            <label><strong>Price:</strong></label>
+            <input [(ngModel)]="currentProduct.price" type="number" class="form-control"/>
+        </div>
+
+        <button class="btn btn-primary mt-2" (click)="saveProduct()">Save Changes</button>
+    </div>
+
+    <button class="btn btn-primary mt-2" (click)="newProduct()">Add New Product</button>
+</div>

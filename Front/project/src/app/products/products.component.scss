@@ -1,0 +1,102 @@
+// Define color variables
+$primary-color: #007bff; // Blue
+$secondary-color: #dc3545; // Red
+$background-color: #f8f9fa; // Light Gray
+$text-color: #343a40; // Dark Gray
+$success-color: #28a745; // Green
+
+// Styles for the overall layout
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $background-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: auto;
+
+  h4 {
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  // Styles for list items
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 10px;
+
+    // Button styles
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+
+      &.btn-success {
+        background-color: $success-color;
+        border-color: $success-color;
+
+        &:hover {
+          background-color: darken($success-color, 5%);
+        }
+      }
+
+      &.btn-danger {
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+
+        &:hover {
+          background-color: darken($secondary-color, 5%);
+        }
+      }
+
+      &.btn-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+          background-color: darken($primary-color, 5%);
+        }
+      }
+    }
+  }
+
+  // Styles for the edit product section
+  .col-md-12 {
+    & * {
+      margin: 10px 0;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="number"] {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+// Media query for responsiveness
+@media (max-width: 768px) {
+  .list {
+    width: 95%;
+  }
+}
